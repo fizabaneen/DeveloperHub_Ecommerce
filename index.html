@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="ShopVibe – Discover the latest fashion, electronics, and lifestyle products at unbeatable prices. Shop now and elevate your style." />
+  <title>ShopVibe – Discover What You Love</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/figma-overrides.css" />
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><text y='22' x='6' font-size='18' font-family='Arial' font-weight='bold' fill='white'>S</text></svg>" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ════════════════════════════════════════════ -->
+  <header class="header" id="site-header">
+    <div class="container">
+      <div class="header__inner">
+
+        <!-- Logo -->
+        <a href="index.html" class="header__logo" aria-label="ShopVibe Home">
+          <div class="header__logo-mark" aria-hidden="true">S</div>
+          <span class="header__logo-text">Shop<span>Vibe</span></span>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search" role="search" id="search-wrapper">
+          <label for="search-input" class="sr-only">Search products</label>
+          <svg class="search__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input id="search-input" class="search__input" type="search" placeholder="Search products, brands…"
+            autocomplete="off" aria-label="Search products" aria-autocomplete="list" aria-controls="search-suggestions" />
+          <!-- Search Suggestions Dropdown -->
+          <div id="search-suggestions" class="search__suggestions" role="listbox" aria-label="Search suggestions" hidden></div>
+        </div>
+
+        <!-- Navigation -->
+        <nav aria-label="Main navigation">
+          <ul class="nav">
+            <li><a href="index.html" class="nav__link nav__link--active" id="nav-home">Home</a></li>
+            <li><a href="products.html" class="nav__link" id="nav-products">Products</a></li>
+            <li><a href="product-detail.html" class="nav__link" id="nav-arrivals">New Arrivals</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header__actions">
+          <!-- Wishlist -->
+          <button class="header__action-btn" id="btn-wishlist" aria-label="Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
+
+          <!-- Cart -->
+          <button class="header__action-btn" id="btn-cart" aria-label="Shopping cart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+            <span class="header__badge" aria-hidden="true" style="display:none">0</span>
+          </button>
+
+          <!-- Sign In -->
+          <a href="#" class="btn btn--primary btn--sm" id="btn-signin">Sign In</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN
+  ════════════════════════════════════════════ -->
+  <main>
+
+    <!-- ── Hero ─────────────────────────────── -->
+    <section class="hero" aria-label="Hero banner">
+      <div class="container">
+        <div class="hero__inner">
+
+          <!-- Copy -->
+          <div class="hero__content">
+            <p class="hero__eyebrow">Summer Collection 2025</p>
+            <h1 class="hero__title">
+              Find Your<br><em>Perfect Style</em><br>Today
+            </h1>
+            <p class="hero__desc">
+              Shop thousands of curated products from top brands. Premium quality, fast delivery, and a seamless
+              shopping experience built for you.
+            </p>
+            <div class="hero__actions">
+              <a href="products.html" class="btn btn--primary btn--lg" id="hero-cta-shop">Shop Now</a>
+              <a href="#featured-products" class="btn btn--hero-outline btn--lg" id="hero-cta-explore">Explore Products</a>
+            </div>
+            <div class="hero__stats">
+              <div>
+                <span class="hero__stat-number">50K+</span>
+                <span class="hero__stat-label">Products</span>
+              </div>
+              <div>
+                <span class="hero__stat-number">200+</span>
+                <span class="hero__stat-label">Brands</span>
+              </div>
+              <div>
+                <span class="hero__stat-number">1M+</span>
+                <span class="hero__stat-label">Happy Customers</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="hero__image-wrap" aria-hidden="true">
+            <img src="assets/Image/backgrounds/Banner-board-800x420 2.png" alt="Featured fashion product" width="520"
+              height="520" onerror="this.style.display='none'" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Trust Badges ──────────────────────── -->
+    <section class="trust-bar" aria-label="Trust indicators">
+      <div class="container">
+        <div class="trust-bar__inner">
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12H19M5 12L9 8M5 12L9 16" transform="scale(-1,1) translate(-24,0)"/><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4"/></svg>
+            <span>Free Shipping Over $50</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 4h3l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L22 7H7"/><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg>
+            <span>30-Day Easy Returns</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Secure Payment</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span>24/7 Support</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Categories ────────────────────────── -->
+    <section class="section" aria-labelledby="categories-heading">
+      <div class="container">
+        <header class="section__header">
+          <p class="section__label">Browse by</p>
+          <h2 class="section__title" id="categories-heading">Shop by Category</h2>
+          <p class="section__subtitle">From everyday essentials to statement pieces — find exactly what you're looking
+            for.</p>
+        </header>
+
+        <div class="categories__grid">
+          <a href="products.html?cat=fashion" class="category-card" id="cat-fashion">
+            <img src="assets/Layout/alibaba/Image/cloth/image 24.png" alt="Fashion category" loading="lazy"
+              onerror="this.style.background='#334155'" />
+            <div class="category-card__body">
+              <h3 class="category-card__title">Fashion</h3>
+              <p class="category-card__count">1,240 items</p>
+            </div>
+          </a>
+          <a href="products.html?cat=electronics" class="category-card" id="cat-electronics">
+            <img src="assets/Image/tech/image 86.png" alt="Electronics category" loading="lazy"
+              onerror="this.style.background='#1E40AF'" />
+            <div class="category-card__body">
+              <h3 class="category-card__title">Electronics</h3>
+              <p class="category-card__count">830 items</p>
+            </div>
+          </a>
+          <a href="products.html?cat=home" class="category-card" id="cat-home">
+            <img src="assets/Image/interior/image 89.png" alt="Home &amp; Living category" loading="lazy"
+              onerror="this.style.background='#065F46'" />
+            <div class="category-card__body">
+              <h3 class="category-card__title">Home &amp; Living</h3>
+              <p class="category-card__count">560 items</p>
+            </div>
+          </a>
+          <a href="products.html?cat=sports" class="category-card" id="cat-sports">
+            <img src="assets/Image/tech/8.png" alt="Sports category" loading="lazy"
+              onerror="this.style.background='#7C2D12'" />
+            <div class="category-card__body">
+              <h3 class="category-card__title">Sports</h3>
+              <p class="category-card__count">415 items</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Featured Products ─────────────────── -->
+    <section class="section" id="featured-products" aria-labelledby="featured-heading"
+      style="background: var(--color-neutral-100);">
+      <div class="container">
+        <div class="products-section__header">
+          <div>
+            <p class="section__label">Hand-picked for you</p>
+            <h2 class="section__title" id="featured-heading" style="margin-bottom:0">Featured Products</h2>
+          </div>
+          <a href="products.html" class="btn btn--outline" id="view-all-products">View All →</a>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="grid-auto" id="featured-grid">
+
+          <!-- Product Card 1 -->
+          <article class="card" id="product-card-1">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--danger">-20%</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="prod-headphones">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <img src="assets/Image/tech/image 86.png" alt="Premium Wireless Headphones" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#dbeafe,#ede9fe)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="4.5 out of 5 stars">★★★★½</span>
+                <span class="card__rating-count">(128)</span>
+              </div>
+              <h3 class="card__title">Premium Wireless Headphones</h3>
+              <p class="card__price">
+                $79.99
+                <span class="card__price--original">$99.99</span>
+              </p>
+              <a href="product-detail.html?id=prod-headphones" class="btn btn--primary btn--full" id="buy-now-1">Buy Now</a>
+            </div>
+          </article>
+
+          <!-- Product Card 2 -->
+          <article class="card" id="product-card-2">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--accent">New</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="prod-jacket">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <img src="assets/Layout/alibaba/Image/cloth/Bitmap.png" alt="Slim Fit Casual Jacket" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#fef9c3,#fee2e2)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="4 out of 5 stars">★★★★☆</span>
+                <span class="card__rating-count">(74)</span>
+              </div>
+              <h3 class="card__title">Slim Fit Casual Jacket</h3>
+              <p class="card__price">$54.99</p>
+              <a href="product-detail.html?id=prod-jacket" class="btn btn--primary btn--full" id="buy-now-2">Buy Now</a>
+            </div>
+          </article>
+
+          <!-- Product Card 3 -->
+          <article class="card" id="product-card-3">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--success">In Stock</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="prod-sneakers">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <img src="assets/Layout/alibaba/Image/cloth/image 26.png" alt="Smart Running Sneakers" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#dcfce7,#dbeafe)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="5 out of 5 stars">★★★★★</span>
+                <span class="card__rating-count">(312)</span>
+              </div>
+              <h3 class="card__title">Smart Running Sneakers</h3>
+              <p class="card__price">$119.00</p>
+              <a href="product-detail.html?id=prod-sneakers" class="btn btn--primary btn--full" id="buy-now-3">Buy Now</a>
+            </div>
+          </article>
+
+          <!-- Product Card 4 -->
+          <article class="card" id="product-card-4">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--danger">-35%</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="prod-watch">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <img src="assets/Image/tech/image 85.png" alt="Minimalist Watch" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#f1f5f9,#e2e8f0)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="4.5 out of 5 stars">★★★★½</span>
+                <span class="card__rating-count">(89)</span>
+              </div>
+              <h3 class="card__title">Minimalist Watch</h3>
+              <p class="card__price">
+                $64.99
+                <span class="card__price--original">$99.99</span>
+              </p>
+              <a href="product-detail.html?id=prod-watch" class="btn btn--primary btn--full" id="buy-now-4">Buy Now</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Best Sellers ───────────────────────── -->
+    <section class="section" id="best-sellers" aria-labelledby="bestsellers-heading">
+      <div class="container">
+        <div class="products-section__header">
+          <div>
+            <p class="section__label">Customer Favourites</p>
+            <h2 class="section__title" id="bestsellers-heading" style="margin-bottom:0">Best Sellers</h2>
+          </div>
+          <a href="products.html" class="btn btn--outline" id="view-all-bestsellers">View All →</a>
+        </div>
+
+        <div class="grid-auto" id="bestsellers-grid">
+
+          <!-- Best Seller Card 1 -->
+          <article class="card" id="bs-card-1">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--neutral">🔥 #1 Seller</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="bs-camera">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="assets/Image/tech/6.png" alt="4K Action Camera" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#0f172a,#1e293b)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="5 out of 5 stars">★★★★★</span>
+                <span class="card__rating-count">(201)</span>
+              </div>
+              <h3 class="card__title">4K Action Camera</h3>
+              <p class="card__price">$249.99</p>
+              <a href="product-detail.html" class="btn btn--primary btn--full" id="bs-buy-1">Buy Now</a>
+            </div>
+          </article>
+
+          <!-- Best Seller Card 2 -->
+          <article class="card" id="bs-card-2">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--neutral">🔥 Top Pick</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="bs-bag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="assets/Layout/alibaba/Image/cloth/image 30.png" alt="Leather Crossbody Bag" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#fdf4ff,#fce7f3)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="4 out of 5 stars">★★★★☆</span>
+                <span class="card__rating-count">(57)</span>
+              </div>
+              <h3 class="card__title">Leather Crossbody Bag</h3>
+              <p class="card__price">$89.00</p>
+              <a href="product-detail.html" class="btn btn--primary btn--full" id="bs-buy-2">Buy Now</a>
+            </div>
+          </article>
+
+          <!-- Best Seller Card 3 -->
+          <article class="card" id="bs-card-3">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--danger">-25%</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="bs-shoes">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="assets/Layout/alibaba/Image/cloth/image 26.png" alt="Classic Canvas Shoes" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#f0fdf4,#dcfce7)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="4.5 out of 5 stars">★★★★½</span>
+                <span class="card__rating-count">(143)</span>
+              </div>
+              <h3 class="card__title">Classic Canvas Shoes</h3>
+              <p class="card__price">$44.99 <span class="card__price--original">$59.99</span></p>
+              <a href="product-detail.html" class="btn btn--primary btn--full" id="bs-buy-3">Buy Now</a>
+            </div>
+          </article>
+
+          <!-- Best Seller Card 4 -->
+          <article class="card" id="bs-card-4">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--accent">Trending</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="bs-jacket">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="assets/Layout/alibaba/Image/cloth/Bitmap.png" alt="Premium Bomber Jacket" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#fff7ed,#fed7aa)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="4 out of 5 stars">★★★★☆</span>
+                <span class="card__rating-count">(98)</span>
+              </div>
+              <h3 class="card__title">Premium Bomber Jacket</h3>
+              <p class="card__price">$129.00</p>
+              <a href="product-detail.html" class="btn btn--primary btn--full" id="bs-buy-4">Buy Now</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Promotional Banner ─────────────────── -->
+    <section class="promo-banner" aria-label="Promotional offer">
+      <div class="container">
+        <div class="promo-banner__inner">
+          <div class="promo-banner__content">
+            <p class="section__label" style="color:rgba(255,255,255,0.7)">Limited Time Offer</p>
+            <h2 class="promo-banner__title">Up to 40% Off<br>This Season's Best</h2>
+            <p class="promo-banner__desc">Handpicked selections across fashion, electronics, and lifestyle — curated just for you.</p>
+            <a href="products.html" class="btn btn--white btn--lg" id="promo-cta">Shop Collection</a>
+          </div>
+          <div class="promo-banner__visual" aria-hidden="true">
+            <div class="promo-banner__circle promo-banner__circle--1"></div>
+            <div class="promo-banner__circle promo-banner__circle--2"></div>
+            <div class="promo-banner__stat-card">
+              <span class="promo-banner__stat-val">40%</span>
+              <span class="promo-banner__stat-lbl">Max Savings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── New Arrivals ───────────────────────── -->
+    <section class="section" id="new-arrivals" aria-labelledby="arrivals-heading"
+      style="background: var(--color-neutral-100);">
+      <div class="container">
+        <div class="products-section__header">
+          <div>
+            <p class="section__label">Just Dropped</p>
+            <h2 class="section__title" id="arrivals-heading" style="margin-bottom:0">New Arrivals</h2>
+          </div>
+          <a href="product-detail.html" class="btn btn--outline" id="view-all-arrivals">View All →</a>
+        </div>
+
+        <div class="grid-auto" id="arrivals-grid">
+
+          <!-- New Arrival Card 1 -->
+          <article class="card" id="na-card-1">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--accent">New</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="na-shirt">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="assets/Layout/alibaba/Image/cloth/image 24.png" alt="Linen Summer Shirt" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#e0f2fe,#bae6fd)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="5 out of 5 stars">★★★★★</span>
+                <span class="card__rating-count">(12)</span>
+              </div>
+              <h3 class="card__title">Linen Summer Shirt</h3>
+              <p class="card__price">$38.00</p>
+              <a href="product-detail.html" class="btn btn--primary btn--full" id="na-buy-1">Buy Now</a>
+            </div>
+          </article>
+
+          <!-- New Arrival Card 2 -->
+          <article class="card" id="na-card-2">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--accent">New</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="na-tech">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="assets/Image/tech/image 34.png" alt="Smart Fitness Band" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#f5f3ff,#ede9fe)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="4 out of 5 stars">★★★★☆</span>
+                <span class="card__rating-count">(8)</span>
+              </div>
+              <h3 class="card__title">Smart Fitness Band</h3>
+              <p class="card__price">$59.99</p>
+              <a href="product-detail.html" class="btn btn--primary btn--full" id="na-buy-2">Buy Now</a>
+            </div>
+          </article>
+
+          <!-- New Arrival Card 3 -->
+          <article class="card" id="na-card-3">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--accent">New</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="na-bag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="assets/Layout/alibaba/Image/cloth/image 30.png" alt="Urban Backpack Pro" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#fdf4ff,#f3e8ff)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="4.5 out of 5 stars">★★★★½</span>
+                <span class="card__rating-count">(19)</span>
+              </div>
+              <h3 class="card__title">Urban Backpack Pro</h3>
+              <p class="card__price">$74.00</p>
+              <a href="product-detail.html" class="btn btn--primary btn--full" id="na-buy-3">Buy Now</a>
+            </div>
+          </article>
+
+          <!-- New Arrival Card 4 -->
+          <article class="card" id="na-card-4">
+            <div class="card__image-wrap">
+              <span class="card__badge"><span class="badge badge--accent">New</span></span>
+              <button class="card__wishlist" aria-label="Add to wishlist" data-product="na-watch">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+              <img src="assets/Image/tech/image 85.png" alt="Carbon Sport Watch" loading="lazy"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#f8fafc,#e2e8f0)'" />
+            </div>
+            <div class="card__body">
+              <div class="card__rating">
+                <span class="star-rating" aria-label="5 out of 5 stars">★★★★★</span>
+                <span class="card__rating-count">(5)</span>
+              </div>
+              <h3 class="card__title">Carbon Sport Watch</h3>
+              <p class="card__price">$149.00</p>
+              <a href="product-detail.html" class="btn btn--primary btn--full" id="na-buy-4">Buy Now</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Newsletter Banner ────────────────── -->
+    <section class="section newsletter-section" aria-labelledby="newsletter-heading">
+      <div class="container" style="text-align:center; max-width:640px;">
+        <p class="section__label" style="color:rgba(255,255,255,0.7)">Exclusive Offers</p>
+        <h2 class="section__title" id="newsletter-heading" style="color:#fff; margin-bottom:var(--space-4)">Get 10% Off
+          Your First Order</h2>
+        <p style="color:rgba(255,255,255,0.8); margin-bottom:var(--space-8)">Subscribe to our newsletter for exclusive
+          offers, new arrivals, and style inspiration.</p>
+        <form class="newsletter__form" id="newsletter-form" aria-label="Newsletter subscription">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" type="email" class="form-input newsletter__input" placeholder="Enter your email address…" required />
+          <button type="submit" class="btn btn--primary" id="newsletter-submit">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="index.html" class="header__logo" aria-label="ShopVibe Home">
+            <div class="header__logo-mark" aria-hidden="true">S</div>
+            <span class="header__logo-text">Shop<span>Vibe</span></span>
+          </a>
+          <p class="footer__brand-desc">Your one-stop destination for fashion, electronics, and lifestyle products.
+            Quality you can trust, prices you'll love.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Twitter / X">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+              </svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                <polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="var(--color-bg-dark)"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Shop Links -->
+        <div class="footer__col">
+          <h3 class="footer__col-title">Shop</h3>
+          <ul class="footer__links">
+            <li><a href="products.html" class="footer__link">All Products</a></li>
+            <li><a href="product-detail.html" class="footer__link">New Arrivals</a></li>
+            <li><a href="#best-sellers" class="footer__link">Best Sellers</a></li>
+            <li><a href="products.html" class="footer__link">Brands</a></li>
+            <li><a href="products.html" class="footer__link">Sale</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer__col">
+          <h3 class="footer__col-title">Support</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Help Center</a></li>
+            <li><a href="#" class="footer__link">Track Order</a></li>
+            <li><a href="#" class="footer__link">Returns &amp; Refunds</a></li>            <li><a href="#" class="footer__link">Size Guide</a></li>
+            <li><a href="#" class="footer__link">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer__col">
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">About Us</a></li>
+            <li><a href="#" class="footer__link">Careers</a></li>
+            <li><a href="#" class="footer__link">Press</a></li>
+            <li><a href="#" class="footer__link">Blog</a></li>
+            <li><a href="#" class="footer__link">Affiliate Program</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer__bottom">
+        <p>© 2025 ShopVibe. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal links">
+          <a href="#" class="footer__legal-link">Privacy Policy</a>
+          <a href="#" class="footer__legal-link">Terms of Service</a>
+          <a href="#" class="footer__legal-link">Cookie Settings</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
+
+</body>
+
+</html>

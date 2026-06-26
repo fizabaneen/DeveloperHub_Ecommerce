@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse our full collection of products. Filter by category, price, and rating to find exactly what you need." />
+  <title>Products – ShopVibe</title>
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/products.css" />
+  <link rel="stylesheet" href="css/figma-overrides.css" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><text y='22' x='6' font-size='18' font-family='Arial' font-weight='bold' fill='white'>S</text></svg>" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ════════════════════════════════════════════ -->
+  <header class="header" id="site-header">
+    <div class="container">
+      <div class="header__inner">
+        <!-- Logo -->
+        <a href="index.html" class="header__logo" aria-label="ShopVibe Home">
+          <div class="header__logo-mark" aria-hidden="true">S</div>
+          <span class="header__logo-text">Shop<span>Vibe</span></span>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search" role="search" id="search-wrapper">
+          <label for="search-input" class="sr-only">Search products</label>
+          <svg class="search__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input id="search-input" class="search__input" type="search" placeholder="Search products, brands…" autocomplete="off" aria-label="Search products" aria-autocomplete="list" aria-controls="search-suggestions" />
+          <div id="search-suggestions" class="search__suggestions" role="listbox" aria-label="Search suggestions" hidden></div>
+        </div>
+
+        <!-- Navigation -->
+        <nav aria-label="Main navigation">
+          <ul class="nav">
+            <li><a href="index.html"          class="nav__link" id="nav-home">Home</a></li>
+            <li><a href="products.html"       class="nav__link nav__link--active" id="nav-products">Products</a></li>
+            <li><a href="product-detail.html" class="nav__link" id="nav-arrivals">New Arrivals</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header__actions">
+          <button class="header__action-btn" id="btn-wishlist" aria-label="Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <button class="header__action-btn" id="btn-cart" aria-label="Shopping cart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span class="header__badge" aria-hidden="true" style="display:none">0</span>
+          </button>
+          <a href="#" class="btn btn--primary btn--sm" id="btn-signin">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN
+  ════════════════════════════════════════════ -->
+  <main>
+    <div class="products-page">
+      <div class="container">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-6)">
+          <ol class="breadcrumb">
+            <li><a href="index.html" class="breadcrumb__link">Home</a></li>
+            <li class="breadcrumb__sep" aria-hidden="true">/</li>
+            <li class="breadcrumb__current" aria-current="page">All Products</li>
+          </ol>
+        </nav>
+
+        <div class="products-page__layout">
+
+          <!-- ── Sidebar Filters ───────────────── -->
+          <aside aria-label="Product filters">
+            <div class="filters" id="filters-panel">
+              <h2 class="filters__title">Filters</h2>
+
+              <!-- Category Filter -->
+              <div class="filter-group" id="filter-category">
+                <p class="filter-group__label">Category</p>
+                <label class="filter-check"><input type="checkbox" name="cat" value="fashion" id="cat-fashion" checked /> Fashion</label>
+                <label class="filter-check"><input type="checkbox" name="cat" value="electronics" id="cat-electronics" /> Electronics</label>
+                <label class="filter-check"><input type="checkbox" name="cat" value="home" id="cat-home" /> Home &amp; Living</label>
+                <label class="filter-check"><input type="checkbox" name="cat" value="sports" id="cat-sports" /> Sports</label>
+                <label class="filter-check"><input type="checkbox" name="cat" value="beauty" id="cat-beauty" /> Beauty</label>
+              </div>
+
+              <hr />
+
+              <!-- Price Range Filter -->
+              <div class="filter-group" id="filter-price" style="margin-top:var(--space-6)">
+                <p class="filter-group__label">Price Range</p>
+                <div class="filter-range">
+                  <input type="range" id="price-range" min="0" max="500" value="250" aria-label="Maximum price" />
+                  <div class="filter-range__labels">
+                    <span>$0</span>
+                    <span id="price-range-val">$250</span>
+                    <span>$500</span>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+
+              <!-- Rating Filter -->
+              <div class="filter-group" id="filter-rating" style="margin-top:var(--space-6)">
+                <p class="filter-group__label">Rating</p>
+                <label class="filter-check"><input type="checkbox" name="rating" value="5" id="rating-5" /> ★★★★★&nbsp;&nbsp;5 stars</label>
+                <label class="filter-check"><input type="checkbox" name="rating" value="4" id="rating-4" /> ★★★★☆&nbsp;&nbsp;4+ stars</label>
+                <label class="filter-check"><input type="checkbox" name="rating" value="3" id="rating-3" /> ★★★☆☆&nbsp;&nbsp;3+ stars</label>
+              </div>
+
+              <hr />
+
+              <!-- Brand Filter -->
+              <div class="filter-group" id="filter-brand" style="margin-top:var(--space-6)">
+                <p class="filter-group__label">Brand</p>
+                <label class="filter-check"><input type="checkbox" name="brand" value="nike" id="brand-nike" /> Nike</label>
+                <label class="filter-check"><input type="checkbox" name="brand" value="adidas" id="brand-adidas" /> Adidas</label>
+                <label class="filter-check"><input type="checkbox" name="brand" value="sony" id="brand-sony" /> Sony</label>
+                <label class="filter-check"><input type="checkbox" name="brand" value="samsung" id="brand-samsung" /> Samsung</label>
+                <label class="filter-check"><input type="checkbox" name="brand" value="apple" id="brand-apple" /> Apple</label>
+              </div>
+
+              <button class="btn btn--primary btn--full" id="apply-filters" style="margin-top:var(--space-6)">Apply Filters</button>
+              <button class="btn btn--ghost btn--full" id="clear-filters" style="margin-top:var(--space-2)">Clear All</button>
+            </div>
+          </aside>
+
+          <!-- ── Products Area ──────────────────── -->
+          <div>
+
+            <!-- Toolbar -->
+            <div class="products-toolbar">
+              <p class="products-toolbar__count">Showing <strong id="product-count">24</strong> of <strong>248</strong> products</p>
+              <div class="products-toolbar__right">
+                <!-- Sort Dropdown -->
+                <div class="dropdown" id="sort-dropdown">
+                  <button class="dropdown__toggle" id="sort-toggle" aria-label="Sort products" aria-haspopup="listbox" aria-expanded="false">
+                    Sort: Featured
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <ul class="dropdown__menu" id="sort-menu" role="listbox" aria-label="Sort options">
+                    <li class="dropdown__item" data-value="featured"   role="option">Featured</li>
+                    <li class="dropdown__item" data-value="price-asc"  role="option">Price: Low to High</li>
+                    <li class="dropdown__item" data-value="price-desc" role="option">Price: High to Low</li>
+                    <li class="dropdown__item" data-value="rating"     role="option">Highest Rated</li>
+                    <li class="dropdown__item" data-value="newest"     role="option">Newest Arrivals</li>
+                  </ul>
+                </div>
+
+                <!-- View Toggle -->
+                <div class="view-toggle" role="group" aria-label="View layout">
+                  <button class="view-toggle__btn view-toggle__btn--active" id="view-grid" aria-label="Grid view" aria-pressed="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                  </button>
+                  <button class="view-toggle__btn" id="view-list" aria-label="List view" aria-pressed="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="products-grid" id="products-grid" aria-live="polite" aria-label="Product listings">
+
+              <article class="card" id="p-card-1">
+                <div class="card__image-wrap">
+                  <span class="card__badge"><span class="badge badge--danger">-20%</span></span>
+                  <button class="card__wishlist" aria-label="Add to wishlist" data-product="p-headphones">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </button>
+                  <img src="assets/Image/tech/image 86.png" alt="Premium Wireless Headphones" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#dbeafe,#ede9fe)'" />
+                </div>
+                <div class="card__body">
+                  <div class="card__rating"><span class="star-rating" aria-label="4.5 out of 5 stars">★★★★½</span><span class="card__rating-count">(128)</span></div>
+                  <h3 class="card__title">Premium Wireless Headphones</h3>
+                  <p class="card__price">$79.99 <span class="card__price--original">$99.99</span></p>
+                  <a href="product-detail.html" class="btn btn--primary btn--full" id="pl-buy-1">Buy Now</a>
+                </div>
+              </article>
+
+              <article class="card" id="p-card-2">
+                <div class="card__image-wrap">
+                  <span class="card__badge"><span class="badge badge--accent">New</span></span>
+                  <button class="card__wishlist" aria-label="Add to wishlist" data-product="p-jacket">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </button>
+                  <img src="assets/Layout/alibaba/Image/cloth/Bitmap.png" alt="Slim Fit Casual Jacket" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#fef9c3,#fee2e2)'" />
+                </div>
+                <div class="card__body">
+                  <div class="card__rating"><span class="star-rating" aria-label="4 out of 5 stars">★★★★☆</span><span class="card__rating-count">(74)</span></div>
+                  <h3 class="card__title">Slim Fit Casual Jacket</h3>
+                  <p class="card__price">$54.99</p>
+                  <a href="product-detail.html" class="btn btn--primary btn--full" id="pl-buy-2">Buy Now</a>
+                </div>
+              </article>
+
+              <article class="card" id="p-card-3">
+                <div class="card__image-wrap">
+                  <span class="card__badge"><span class="badge badge--success">In Stock</span></span>
+                  <button class="card__wishlist" aria-label="Add to wishlist" data-product="p-sneakers">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </button>
+                  <img src="assets/Layout/alibaba/Image/cloth/image 26.png" alt="Smart Running Sneakers" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#dcfce7,#dbeafe)'" />
+                </div>
+                <div class="card__body">
+                  <div class="card__rating"><span class="star-rating" aria-label="5 out of 5 stars">★★★★★</span><span class="card__rating-count">(312)</span></div>
+                  <h3 class="card__title">Smart Running Sneakers</h3>
+                  <p class="card__price">$119.00</p>
+                  <a href="product-detail.html" class="btn btn--primary btn--full" id="pl-buy-3">Buy Now</a>
+                </div>
+              </article>
+
+              <article class="card" id="p-card-4">
+                <div class="card__image-wrap">
+                  <span class="card__badge"><span class="badge badge--danger">-35%</span></span>
+                  <button class="card__wishlist" aria-label="Add to wishlist" data-product="p-watch">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </button>
+                  <img src="assets/Image/tech/image 85.png" alt="Minimalist Watch" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#f1f5f9,#e2e8f0)'" />
+                </div>
+                <div class="card__body">
+                  <div class="card__rating"><span class="star-rating" aria-label="4.5 out of 5 stars">★★★★½</span><span class="card__rating-count">(89)</span></div>
+                  <h3 class="card__title">Minimalist Watch</h3>
+                  <p class="card__price">$64.99 <span class="card__price--original">$99.99</span></p>
+                  <a href="product-detail.html" class="btn btn--primary btn--full" id="pl-buy-4">Buy Now</a>
+                </div>
+              </article>
+
+              <article class="card" id="p-card-5">
+                <div class="card__image-wrap">
+                  <button class="card__wishlist" aria-label="Add to wishlist" data-product="p-bag">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </button>
+                  <img src="assets/Layout/alibaba/Image/cloth/image 30.png" alt="Leather Crossbody Bag" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#fdf4ff,#fce7f3)'" />
+                </div>
+                <div class="card__body">
+                  <div class="card__rating"><span class="star-rating" aria-label="4 out of 5 stars">★★★★☆</span><span class="card__rating-count">(57)</span></div>
+                  <h3 class="card__title">Leather Crossbody Bag</h3>
+                  <p class="card__price">$89.00</p>
+                  <a href="product-detail.html" class="btn btn--primary btn--full" id="pl-buy-5">Buy Now</a>
+                </div>
+              </article>
+
+              <article class="card" id="p-card-6">
+                <div class="card__image-wrap">
+                  <span class="card__badge"><span class="badge badge--accent">Trending</span></span>
+                  <button class="card__wishlist" aria-label="Add to wishlist" data-product="p-camera">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </button>
+                  <img src="assets/Image/tech/6.png" alt="4K Action Camera" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#0f172a,#1e293b)'" />
+                </div>
+                <div class="card__body">
+                  <div class="card__rating"><span class="star-rating" aria-label="5 out of 5 stars">★★★★★</span><span class="card__rating-count">(201)</span></div>
+                  <h3 class="card__title">4K Action Camera</h3>
+                  <p class="card__price">$249.99</p>
+                  <a href="product-detail.html" class="btn btn--primary btn--full" id="pl-buy-6">Buy Now</a>
+                </div>
+              </article>
+
+              <article class="card" id="p-card-7">
+                <div class="card__image-wrap">
+                  <span class="card__badge"><span class="badge badge--accent">New</span></span>
+                  <button class="card__wishlist" aria-label="Add to wishlist" data-product="p-shirt">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </button>
+                  <img src="assets/Layout/alibaba/Image/cloth/image 24.png" alt="Classic Oxford Shirt" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#e0f2fe,#bae6fd)'" />
+                </div>
+                <div class="card__body">
+                  <div class="card__rating"><span class="star-rating" aria-label="4.5 out of 5 stars">★★★★½</span><span class="card__rating-count">(44)</span></div>
+                  <h3 class="card__title">Classic Oxford Shirt</h3>
+                  <p class="card__price">$42.00</p>
+                  <a href="product-detail.html" class="btn btn--primary btn--full" id="pl-buy-7">Buy Now</a>
+                </div>
+              </article>
+
+              <article class="card" id="p-card-8">
+                <div class="card__image-wrap">
+                  <span class="card__badge"><span class="badge badge--danger">-18%</span></span>
+                  <button class="card__wishlist" aria-label="Add to wishlist" data-product="p-tech">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </button>
+                  <img src="assets/Image/tech/8.png" alt="Gaming Earbuds Pro" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#f5f3ff,#ede9fe)'" />
+                </div>
+                <div class="card__body">
+                  <div class="card__rating"><span class="star-rating" aria-label="4 out of 5 stars">★★★★☆</span><span class="card__rating-count">(163)</span></div>
+                  <h3 class="card__title">Gaming Earbuds Pro</h3>
+                  <p class="card__price">$34.99 <span class="card__price--original">$42.99</span></p>
+                  <a href="product-detail.html" class="btn btn--primary btn--full" id="pl-buy-8">Buy Now</a>
+                </div>
+              </article>
+
+              <article class="card" id="p-card-9">
+                <div class="card__image-wrap">
+                  <button class="card__wishlist" aria-label="Add to wishlist" data-product="p-tech2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </button>
+                  <img src="assets/Image/tech/image 34.png" alt="Smart Fitness Band" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#f0fdf4,#dcfce7)'" />
+                </div>
+                <div class="card__body">
+                  <div class="card__rating"><span class="star-rating" aria-label="4 out of 5 stars">★★★★☆</span><span class="card__rating-count">(88)</span></div>
+                  <h3 class="card__title">Smart Fitness Band</h3>
+                  <p class="card__price">$59.99</p>
+                  <a href="product-detail.html" class="btn btn--primary btn--full" id="pl-buy-9">Buy Now</a>
+                </div>
+              </article>
+
+            </div><!-- /products-grid -->
+
+            <!-- Pagination -->
+            <nav class="pagination" aria-label="Product pages">
+              <button class="pagination__btn" id="page-prev" aria-label="Previous page">‹</button>
+              <button class="pagination__btn pagination__btn--active" id="page-1" aria-current="page" aria-label="Page 1">1</button>
+              <button class="pagination__btn" id="page-2" aria-label="Page 2">2</button>
+              <button class="pagination__btn" id="page-3" aria-label="Page 3">3</button>
+              <span style="color:var(--color-text-muted);align-self:center">…</span>
+              <button class="pagination__btn" id="page-11" aria-label="Page 11">11</button>
+              <button class="pagination__btn" id="page-next" aria-label="Next page">›</button>
+            </nav>
+
+          </div><!-- /products area -->
+        </div><!-- /layout -->
+      </div><!-- /container -->
+    </div><!-- /products-page -->
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="header__logo" aria-label="ShopVibe Home">
+            <div class="header__logo-mark" aria-hidden="true">S</div>
+            <span class="header__logo-text">Shop<span>Vibe</span></span>
+          </a>
+          <p class="footer__brand-desc">Your one-stop destination for fashion, electronics, and lifestyle products. Quality you can trust, prices you'll love.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Twitter / X"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__col-title">Shop</h3>
+          <ul class="footer__links">
+            <li><a href="products.html" class="footer__link">All Products</a></li>
+            <li><a href="product-detail.html" class="footer__link">New Arrivals</a></li>
+            <li><a href="products.html" class="footer__link">Best Sellers</a></li>
+            <li><a href="products.html" class="footer__link">Sale</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__col-title">Support</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Help Center</a></li>
+            <li><a href="#" class="footer__link">Track Order</a></li>
+            <li><a href="#" class="footer__link">Returns &amp; Refunds</a></li>
+            <li><a href="#" class="footer__link">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__col-title">Company</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">About Us</a></li>
+            <li><a href="#" class="footer__link">Careers</a></li>
+            <li><a href="#" class="footer__link">Blog</a></li>
+            <li><a href="#" class="footer__link">Affiliate Program</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 ShopVibe. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal links">
+          <a href="#" class="footer__legal-link">Privacy Policy</a>
+          <a href="#" class="footer__legal-link">Terms of Service</a>
+          <a href="#" class="footer__legal-link">Cookie Settings</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/pages/products.js"></script>
+
+</body>
+</html>
